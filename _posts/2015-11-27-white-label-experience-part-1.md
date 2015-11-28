@@ -97,6 +97,7 @@ We leverage Amazon AWS where we can, thus we will be using Route 53 to set up ou
 	- Alias Target: {Our S3 Bucket from Step #2}
 	- Save
 
+test
 Fixed Domain HTML page:
 {% highlight html linenos %}
 <!DOCTYPE html>
