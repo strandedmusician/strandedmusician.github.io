@@ -13,7 +13,7 @@ Our current stack for the application consists of an Angular front-end sitting i
 ### UI Customization
 The customizations to the UI (field relabeling, etc) were done manually, with each field doing something similar to:
 
-```
+```html
 <label for="password">{{biller.gui.login.passwordFieldLabel || 'Account Password'}}
 	<input type="password" id="password" placeholder="{{biller.gui.login.passwordFieldLabel || 'Account Password'}}" /></label>
 ```
@@ -99,7 +99,8 @@ We leverage Amazon AWS where we can, thus we will be using Route 53 to set up ou
 
 
 Fixed Domain HTML page:
-```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -122,7 +123,8 @@ Fixed Domain HTML page:
 ```
 
 Wildcard Domain HTML page:
-```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
