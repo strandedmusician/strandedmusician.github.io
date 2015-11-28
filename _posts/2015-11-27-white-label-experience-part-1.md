@@ -14,8 +14,11 @@ Our current stack for the application consists of an Angular front-end sitting i
 The customizations to the UI (field relabeling, etc) were done manually, with each field doing something similar to:
 
 ```html
+{% raw %}
 <label for="password">{{biller.gui.login.passwordFieldLabel || 'Account Password'}}
-	<input type="password" id="password" placeholder="{{biller.gui.login.passwordFieldLabel || 'Account Password'}}" /></label>
+	<input type="password" id="password" placeholder="{{biller.gui.login.passwordFieldLabel || 'Account Password'}}" />
+</label>
+{% endraw %}
 ```
 
 This was cumbersome, took a lot of time to target each customizable piece we wanted, and ultimately was not going to provide the best results. It was a result of an immediate need on a very short timeline, but would not scale. More on that later. But, we had a bigger problem:
