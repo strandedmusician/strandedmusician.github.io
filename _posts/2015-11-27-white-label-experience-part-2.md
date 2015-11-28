@@ -98,6 +98,45 @@ We leverage Amazon AWS where we can, thus we will be using Route 53 to set up ou
 	- Save
 
 
+Fixed Domain HTML page:
+{% highlight html linenos %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Wildcard Page!</title>
+  </head>
+  <body>
+  <h1>Wildcard Page!</h1>
+    <!-- page content -->
+	<p>Biller: <span id="billerId"></span></p>
+	
+	<script type="text/javascript">
+		var domain = window.location.host.split('.');
+		var biller = domain.shift();
+		
+		document.getElementById('billerId').innerText = biller;
+	</script>
+  </body>
+</html>
+{% endhighlight %}
+
+Wildcard Domain HTML page:
+{% highlight html linenos %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fixed DNS Record Page!</title>
+  </head>
+  <body>
+  <h1>Fixed DNS Record Page!</h1>
+    <!-- page content -->
+	<p>Fixed DNS RecordB</p>
+  </body>
+</html>
+{% endhighlight %}
+
 ## Testing
 Wait a few moments for the DNS Records to apply, then attempt hitting some URLs
 
