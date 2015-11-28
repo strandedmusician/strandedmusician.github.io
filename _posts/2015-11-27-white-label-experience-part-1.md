@@ -13,10 +13,10 @@ Our current stack for the application consists of an Angular front-end sitting i
 ### UI Customization
 The customizations to the UI (field relabeling, etc) were done manually, with each field doing something similar to:
 
-~~~
+{% highlight html %}
 <label for="password">{{biller.gui.login.passwordFieldLabel || 'Account Password'}}
 	<input type="password" id="password" placeholder="{{biller.gui.login.passwordFieldLabel || 'Account Password'}}" /></label>
-~~~
+{% endhighlight %}
 
 This was cumbersome, took a lot of time to target each customizable piece we wanted, and ultimately was not going to provide the best results. It was a result of an immediate need on a very short timeline, but would not scale. More on that later. But, we had a bigger problem:
 
@@ -24,9 +24,9 @@ This was cumbersome, took a lot of time to target each customizable piece we wan
 
 To determine the context of the site (what biller was this consumer attempting to sign in to? What white-label customizations needed to be applied?), we initially attempted to pass in the biller's UUID as a part of the initial page render, such as:
 
-~~~
+{% highlight linenos %}
 https://www.p2d.io/#eb4501d7-44dd-4fe6-99e6-3d9b64e898a5
-~~~
+{% endhighlight %}
 
 When the SPA site loaded up, in our Angular Config phase, we would grab the UUID out of the URL, pull the pertinent details relating to it from the database, and set the "context" of the site to be based on this white-label experience. Due to the fact that the URL would change and we would lose that context in the URL as Angular navigates around routes, we would store it in a cookie. A user could navigate around the site, choose to refresh the page, and we would be able to pull the biller config again with the information in the cookie.
 
@@ -45,9 +45,9 @@ We needed a more elegant solution, both for the code-side of things, and somethi
 
 What if we could have something prettier like this?
 
-~~~
+{% highlight %}
 https://ellis-water.p2d.io/
-~~~
+{% endhighlight %}
 
 Would this solve a code problem? Is there additional maintenance? Is there a logical way to make this happen?
 
@@ -98,7 +98,7 @@ We leverage Amazon AWS where we can, thus we will be using Route 53 to set up ou
 	- Save
 
 Fixed Domain HTML page:
-~~~
+{% highlight html linenos %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -118,10 +118,10 @@ Fixed Domain HTML page:
 	</script>
   </body>
 </html>
-~~~
+{% endhighlight %}
 
 Wildcard Domain HTML page:
-~~~
+{% highlight html linenos %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -134,12 +134,12 @@ Wildcard Domain HTML page:
 	<p>Fixed DNS RecordB</p>
   </body>
 </html>
-~~~
+{% endhighlight %}
 
 ## Testing
 Wait a few moments for the DNS Records to apply, then attempt hitting some URLs
 
-~~~
+{% highlight %}
 # Goes to static/fixed dns page
 https://fixed.mydnsplayground.net/ 
 
@@ -147,7 +147,7 @@ https://fixed.mydnsplayground.net/
 https://fake.mydnsplayground.net/
 https://biller2.mydnsplayground.net/ 
 https://biller1.mydnsplayground.net/
-~~~
+{% endhighlight %}
 
 Success!
 
