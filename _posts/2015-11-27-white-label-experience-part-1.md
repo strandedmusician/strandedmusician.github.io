@@ -1,4 +1,6 @@
-# The White-Label Experience (Part 1)
+---
+title: The White-Label Experience (Part 1)
+---
 
 One of the projects I have been working on has been a consumer-facing white-label site for utility companies to process payments. One of the pre-requisites for this was the ability to allow them to customize their consumers' experience with their own branding, color, etc.
 
