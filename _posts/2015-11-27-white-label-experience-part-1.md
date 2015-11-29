@@ -34,6 +34,7 @@ https://www.p2d.io/#eb4501d7-44dd-4fe6-99e6-3d9b64e898a5
 When the SPA site loaded up, in our Angular Config phase, we would grab the UUID out of the URL, pull the pertinent details relating to it from the database, and set the "context" of the site to be based on this white-label experience. Due to the fact that the URL would change and we would lose that context in the URL as Angular navigates around routes, we would store it in a cookie. A user could navigate around the site, choose to refresh the page, and we would be able to pull the biller config again with the information in the cookie.
 
 This lead to many problems, which have haunted us many times (mostly to those NOT using the site in a normal flow), such as:
+
 - **Typos** by business users (for demos, primarily)
 - Getting **locked in** on one biller (issues with the cookie), and having to refresh the page a couple times to get the new context (never battled that bug into oblivion)
 - Could not log in to two billers using our system at the same time (session collision across the cookie for our www.p2d.io domain)
